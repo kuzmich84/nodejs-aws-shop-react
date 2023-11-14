@@ -29,11 +29,6 @@ export class CFAppStack extends cdk.Stack {
       }
     )
 
-    new s3deploy.BucketDeployment(this, `shop-app-kudim-deployment-${stage}`, {
-      destinationBucket: staticWebsiteBucket,
-      sources: [cdk.aws_s3_deployment.Source.asset(path)],
-    })
-
     staticWebsiteBucket.addToResourcePolicy(
       new cdk.aws_iam.PolicyStatement({
         sid: 's3BucketPublicRead ',
@@ -51,8 +46,11 @@ export class CFAppStack extends cdk.Stack {
         priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
         defaultBehavior: {
           origin: new cdk.aws_cloudfront_origins.S3Origin(staticWebsiteBucket),
+          viewerProtocolPolicy:
+            cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         },
         comment: 'Cloudfront distribution for react app',
+        defaultRootObject: 'index.html',
       }
     )
 
