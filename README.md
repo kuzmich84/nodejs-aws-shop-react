@@ -18,7 +18,7 @@ This is frontend starter project for nodejs-aws mentoring program. It uses the f
 ## LINKS
 
 Link to S3 bucket:http://shop-app-kudim-development.s3-website-eu-west-1.amazonaws.com/
-Link cloudFront: https://d361x3twl035em.cloudfront.net/
+Link cloudFront: https://d18s73ypac466i.cloudfront.net/
 
 ## Available Scripts for AWS CDK
 
