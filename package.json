@@ -54,5 +54,9 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "overrides": {
+    "@types/react": "$@types/react",
+    "react": "$react"
   }
 }
